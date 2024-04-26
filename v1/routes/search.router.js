@@ -5,7 +5,6 @@ const { searchParams } = require("../controllers/search.controller");
 
 router.get("/:monitor", async (req, res) => {
   const { monitor } = req.params;
-  console.log(monitor);
   try {
     const { response, data } = await searchParams(monitor);
     if (response.status === 200) {
