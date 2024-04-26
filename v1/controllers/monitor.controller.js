@@ -16,8 +16,8 @@ const file = async () => {
 };
 
 const exchangesName = async () => {
-  //const response = await axios.get(urlBase + "coins/latest");
-  const response = await file();
+  const response = await axios.get(urlBase + "coins/latest");
+  //   const response = await file();
   const objectName = [];
   const objectData = [];
   for (let i in response) {
