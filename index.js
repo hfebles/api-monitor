@@ -10,23 +10,23 @@ const calculatorRouter = require(`./${version}/routes/calculator.router`);
 
 app.use(express.json());
 
-const enforceAPITag = (req, res, next) => {
-  if (!req.url.startsWith("/api")) {
-    return res.status(400).send({
-      status: 400,
-      message: "La ruta no es válida. Debe incluir /api en la URL.",
-    });
-  }
+// const enforceAPITag = (req, res, next) => {
+//   if (!req.url.startsWith("/api")) {
+//     return res.status(400).send({
+//       status: 400,
+//       message: "La ruta no es válida. Debe incluir /api en la URL.",
+//     });
+//   }
 
-  next();
-};
-app.use(enforceAPITag);
+//   next();
+// };
+// app.use(enforceAPITag);
 
 app.use(`/api/monitors`, monitorRouter);
 app.use(`/api/search`, searchRouter);
 app.use(`/api/calculator`, calculatorRouter);
 
-app.get("/api", async (req, res) => {
+app.get("/", async (req, res) => {
   res.status(200).send({
     message: "Welcome to my api",
     version: `Current Version: ${version}`,
