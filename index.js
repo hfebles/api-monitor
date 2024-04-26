@@ -30,8 +30,13 @@ app.get("/", async (req, res) => {
   res.status(200).send({
     message: "Welcome to my api",
     version: `Current Version: ${version}`,
-    documentation: `http://localhost:${port}/api/docs`,
+    documentation: `https://api-monitor.hfebles.com/docs`,
+    author: `Jesus <jehfebles@gmail.com> Hernandez`,
   });
+});
+
+app.get("/docs", (req, res) => {
+  res.sendFile(__dirname + "/docs/api-monitor.html");
 });
 
 app.use((req, res, next) => {
