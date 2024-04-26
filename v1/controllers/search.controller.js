@@ -15,8 +15,6 @@ const searchParams = async (param) => {
     return { monitor, searchName };
   });
   for (let i = 0; i < obj.length; i++) {
-    console.log(`${param} == ${obj[i].searchName}`);
-    console.log(param == obj[i].searchName);
     if (param == obj[i].searchName) {
       response = {
         response: "OK",
@@ -26,8 +24,8 @@ const searchParams = async (param) => {
         name: objs.objectData[i].name,
         currency: objs.objectData[i].currency,
         price: objs.objectData[i].price,
-        priceBuy: objs.objectData[i].priceBuy,
-        priceSell: objs.objectData[i].priceSell,
+        priceBuy: objs.objectData[i]?.priceBuy,
+        priceSell: objs.objectData[i]?.priceSell,
         updatedAt: objs.objectData[i].updatedAt,
       };
       return (rst = { response, data });
@@ -37,7 +35,6 @@ const searchParams = async (param) => {
       };
     }
   }
-
   return rst;
 };
 

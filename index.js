@@ -6,6 +6,7 @@ const version = process.env.version || "v1";
 
 const monitorRouter = require(`./${version}/routes/monitor.router`);
 const searchRouter = require(`./${version}/routes/search.router`);
+const calculatorRouter = require(`./${version}/routes/calculator.router`);
 
 app.use(express.json());
 
@@ -23,6 +24,7 @@ app.use(enforceAPITag);
 
 app.use(`/api/monitors`, monitorRouter);
 app.use(`/api/search`, searchRouter);
+app.use(`/api/calculator`, calculatorRouter);
 
 app.get("/api", async (req, res) => {
   res.status(200).send({
